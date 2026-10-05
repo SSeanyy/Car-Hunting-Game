@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#101318">
+<title>Car Hunt</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div>
+      <div class="logo"> 🚘CAR HUNT </div>
+    </div>
+    <div class="collection-count"><b id="count">0</b>/50</div>
+  </header>
+
+  <main>
+    <section id="home" class="screen active">
+      <div class="hero">
+        <div class="hero-icon">⛟</div>
+        <h1>Build your Online Car Collection!</h1>
+        <p>Take a picture of a car to identify the make and model!</p>
+        <button id="scanHero" class="scan-button">📷 SCAN A CAR</button>
+      </div>
+
+      <div class="stats-grid">
+        <div><strong id="uniqueCount">0</strong><span>Cars Collected</span></div>
+        <div><strong id="makeCount">0</strong><span>Makes Discovered</span></div>
+        <div><strong id="rareCount">0</strong><span>Rare+</span></div>
+      </div>
+
+      <div class="section-heading">
+        <h2>Recent Discoveries</h2>
+        <button id="viewAll">View All</button>
+      </div>
+      <div id="recent" class="horizontal-list"></div>
+    </section>
+
+    <section id="scan" class="screen">
+      <div class="screen-heading">
+        <h1> 📷 Scan Car</h1>
+      </div>
+
+      <div class="camera-card">
+        <video id="camera" autoplay playsinline muted></video>
+        <img id="preview" alt="Selected car photo preview">
+        <div id="cameraPlaceholder" class="camera-placeholder">
+          <small>Use your camera or open an existing photo!</small>
+        </div>
+        <div class="scan-frame"></div>
+      </div>
+
+      <input id="photoInput" type="file" accept="image/*" capture="environment" hidden>
+      <div class="scan-actions">
+        <button id="cameraBtn" class="primary">📷 Open Camera</button>
+        <button id="photoBtn" class="secondary">🖼️ Choose Photo</button>
+      </div>
+      <button id="identifyBtn" class="identify" disabled>IDENTIFY CAR</button>
+    </section>
+
+    <section id="collection" class="screen">
+      <div class="screen-heading row">
+        <div><h1>🚘 My Car Collection</h1><p>View all the cars you've added to your collection!</p></div>
+        <button id="filterBtn" class="filter">All</button>
+      </div>
+      <div id="collectionGrid" class="collection-grid"></div>
+    </section>
+
+    <section id="detail" class="screen">
+      <button id="backDetail" class="back">‹ Back</button>
+      <div id="detailContent"></div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav active" data-screen="home"><span>🏠</span><small>Home</small></button>
+    <button class="nav" data-screen="scan"><span>📸</span><small>Scan</small></button>
+    <button class="nav" data-screen="collection"><span>📕</span><small>Car Collection</small></button>
+  </nav>
+
+  <div id="resultModal" class="modal hidden">
+    <div class="modal-sheet">
+      <button id="closeResult" class="close">×</button>
+      <div id="resultImage" class="result-image">😳</div>
+      <div id="resultText"></div>
+      <button id="collectBtn" class="identify">ADD TO COLLECTION +</button>
+      <button id="retakeBtn" class="secondary wide">SCAN ANOTHER CAR</button>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

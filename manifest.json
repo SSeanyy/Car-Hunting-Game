@@ -1,0 +1,9 @@
+{
+  "name":"CarDex",
+  "short_name":"CarDex",
+  "start_url":"./index.html",
+  "display":"standalone",
+  "background_color":"#0c0f13",
+  "theme_color":"#101318",
+  "description":"A Pokédex-style app for identifying and collecting cars."
+}
